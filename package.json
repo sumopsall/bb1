@@ -1,6 +1,18 @@
 {
+  "name": "care4u-chatbot",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "lucide-react": "^0.544.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.2"
   }
 }
