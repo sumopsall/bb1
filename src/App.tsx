@@ -1,11 +1,38 @@
-import React from 'react';
-import { ChatBot } from './components/ChatBot';
+import React, { useState } from 'react';
+import { MoodTracker } from './components/MoodTracker'
+import { SelfTest } from './components/SelfTest'
+import { Resources } from './components/Resources'
+import { ChatBot } from './components/ChatBot'
+import { Auth } from './components/Auth'
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'mood':
+        return <MoodTracker />
+      case 'test':
+        return <SelfTest />
+      case 'resources':
+        return <Resources />
+      case 'chat':
+        return (
+          <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
+            <div className="container mx-auto py-8">
+              <ChatBot />
+            </div>
+          </div>
+        )
+      default:
+        return <Home onPageChange={setCurrentPage} />
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 p-4">
       <div className="container mx-auto py-8">
-        <ChatBot />
+        {renderPage()}
         
         {/* Footer */}
         <div className="mt-8 text-center text-sm text-gray-600">
